@@ -2,7 +2,7 @@
 <div class="flex-container">
     <div *ngFor="let user of userList" class="card">
         <div class="user-name">
-            <button type="button" class="close" (click)="openRemoveUser(user)">&times;</button>
+            <button type="button" class="close" (click)="openRemoveUserPopup(user)">&times;</button>
             <div contenteditable="true" (blur)='onUserNameEdit($event,user)'> {{user.userName}}</div>
         </div>
         <div class="task-block"  [dragula]="'task-list'" [dragulaModel]="user.taskList" (dragulaModelChange)="user.taskList = $event">

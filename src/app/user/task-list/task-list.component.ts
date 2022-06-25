@@ -35,10 +35,12 @@ export class TaskListComponent implements OnInit{
     constructor(private userService:UserService,
         private dragulaService: DragulaService){
 
+            //create drag and drop group
             dragulaService.createGroup("task-list", {
                 removeOnSpill: true
             });
 
+            //get task drop data
             this.dragulaService.drop("task-list")
             .subscribe(({ name, el, target, source, sibling }) => {
                 console.log(this.userList);
@@ -49,6 +51,7 @@ export class TaskListComponent implements OnInit{
         this.getUserAndTaskDetail();
     }
 
+    //get new task and user list method
     getUserAndTaskDetail(){
        this.isUserTaskDataSubscription = this.userService.addItemObservable.subscribe((item)=>{
             if(item && Object.keys(item).length > 0){
@@ -76,12 +79,14 @@ export class TaskListComponent implements OnInit{
         });
     }
 
+    // add new task method
     onAddTask(data:any){
         this.isTaskPopupEnable = true;
         this.selectedUserId = data.userId;
     }
 
-    openRemoveUser(user:any){
+    //open delete user popup
+    openRemoveUserPopup(user:any){
         this.selectedDeletUserIndex = this.userList.indexOf(user);
         this.isDeletePopupEnable = true;
     }
@@ -93,6 +98,7 @@ export class TaskListComponent implements OnInit{
         }
     }
 
+    // edit user name method
     onUserNameEdit(event,user){
         let index: number = this.userList.indexOf(user);
         if( this.userList[index].userName != event.target.innerText){
@@ -101,6 +107,7 @@ export class TaskListComponent implements OnInit{
         }
     }
 
+    //edit task name method
     onTaskNameEdit(event,user,task){
         let index: number = this.userList.indexOf(user);
         let taskIndex:number = this.userList[index].taskList.indexOf(task);
