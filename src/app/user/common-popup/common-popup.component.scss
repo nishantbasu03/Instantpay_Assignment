@@ -1,0 +1,43 @@
+.modal {
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: block !important;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    .modal-open{
+        width: 75%;
+        height: auto;
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: 30px auto;
+        background: #ffffff;
+        border-radius: 7px;
+
+        .form-control{
+            height: 40px;
+            &:focus{
+                box-shadow: none;
+                border-color: #000;
+            }
+        }
+        .add-user-btn{
+            padding: 11px 0 13px;
+            border-radius: 5px;
+            width: 150px;
+            height: 40px;
+            border: 0;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            background-color: #04AA6D;
+        }
+    }    
+}
