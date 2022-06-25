@@ -1,0 +1,9 @@
+<!-- Add user -->
+<div class="flex-container">
+    <button type="button" class="add-user-btn" (click)="isUserPopupEnable = true;">Add User</button>
+</div>
+
+<!-- User popup -->
+<div *ngIf="isUserPopupEnable">
+    <common-popup [isUserPopupEnable]="isUserPopupEnable" (isClosePopup)="isUserPopupEnable = false;"></common-popup>
+</div>    
