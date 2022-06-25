@@ -1,0 +1,15 @@
+<div class="modal">
+    <div class="modal-open">
+        <div class="modal-header">
+            <button type="button" class="close" (click)="onClosePopup()">&times;</button>
+            <h4 class="modal-title"> Add {{headerTitle}} </h4>
+        </div>
+        <div class="modal-body">
+            <label>Name:</label>
+            <input type="text" class="form-control" [(ngModel)]="itemName">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="add-user-btn" (click)="onAddItem()">Save</button>
+        </div>
+    </div>
+</div> 
