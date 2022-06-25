@@ -19,10 +19,12 @@ export class CommonPopupComponent implements OnInit {
         this.headerTitle = this.isUserPopupEnable ? 'User' : 'Task';
     }
 
+    // close popup
     onClosePopup(){
         this.isClosePopup.emit();
     }
 
+    // create task and user
     onAddItem(){
         if(this.itemName && this.itemName.trim()){
             this.userService.addItem = {

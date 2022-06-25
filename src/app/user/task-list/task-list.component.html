@@ -2,10 +2,10 @@
 <div class="flex-container">
     <div *ngFor="let user of userList" class="card">
         <div class="user-name">
-            <button type="button" class="close" (click)="removeUser(user)">×</button>
+            <button type="button" class="close" (click)="openRemoveUserPopup(user)">&times;</button>
             <div contenteditable="true" (blur)='onUserNameEdit($event,user)'> {{user.userName}}</div>
         </div>
-        <div class="task-block">
+        <div class="task-block"  [dragula]="'task-list'" [dragulaModel]="user.taskList" (dragulaModelChange)="user.taskList = $event">
             <div class="task-div" *ngFor="let task of user.taskList">
              <div contenteditable="true" (blur)='onTaskNameEdit($event,user,task)'>{{task.taskName}}</div>  
             </div>
@@ -30,4 +30,9 @@
 <!-- Task popup -->
 <div *ngIf="isTaskPopupEnable">
     <common-popup [selectedUserId]="selectedUserId" (isClosePopup)="isTaskPopupEnable = false;"></common-popup>
+</div>
+
+<!-- delete user popup -->
+<div *ngIf="isDeletePopupEnable">
+    <delete-popup (isDelteUser)="deleteUser($event)"></delete-popup>
 </div>

@@ -7,18 +7,22 @@ import { AddUserComponent } from "./add-user/addUser.component";
 import { CommonPopupComponent } from "./common-popup/common-popup.component";
 import { UserService } from "./user.service";
 import { TaskListComponent } from "./task-list/task-list.component";
+import { DragulaModule } from "ng2-dragula";
+import { DeletePopupComponent } from "./delete-popup/delete-popup.component";
 
 @NgModule({
     declarations: [
         UserComponent,
         AddUserComponent,
         CommonPopupComponent,
-        TaskListComponent
+        TaskListComponent,
+        DeletePopupComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
-        UserRoutingModule
+        UserRoutingModule,
+        DragulaModule.forRoot()
     ],
     providers: [UserService]
 })
